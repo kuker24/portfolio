@@ -1,0 +1,78 @@
+---
+import { siteData } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = `${siteData.name} — ${siteData.title}`, description = siteData.description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, siteData.siteUrl);
+const ogImageUrl = `${siteData.siteUrl}${siteData.photo.webp}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": siteData.name,
+  "jobTitle": "Full-Stack Developer & AI Engineering Educator",
+  "url": `${siteData.siteUrl}${siteData.basePath}/`,
+  "sameAs": [
+    siteData.socials.github.url,
+    siteData.socials.linkedin.url
+  ],
+  "knowsAbout": ["Full-Stack Engineering", "Educational Systems Architecture", "AI Engineering", "Web Security"]
+};
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${siteData.basePath}/favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <!-- Schema.org JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <style is:global>
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto !important;
+        }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-bg-dark text-text-main font-sans antialiased selection:bg-accent-amber selection:text-bg-dark min-h-screen flex flex-col overflow-x-hidden">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

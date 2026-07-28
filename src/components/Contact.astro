@@ -1,0 +1,21 @@
+---
+import { siteData } from '../data/site';
+---
+<section id="contact" class="py-16 border-b border-bg-border/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center max-w-2xl">
+    <h2 class="text-xs font-mono uppercase tracking-widest text-accent-amber mb-3">05. Kontak Resmi</h2>
+    <h3 class="text-3xl font-bold text-text-main mb-4">Terhubung Lewat Profil Publik</h3>
+    <p class="text-text-muted mb-8 leading-relaxed">
+      Untuk keperluan kolaborasi teknis, diskusi proyek, atau edukasi AI engineering, Anda dapat terhubung langsung melalui profil verified berikut:
+    </p>
+
+    <div class="flex flex-wrap justify-center items-center gap-4">
+      <a href={siteData.socials.github.url} target="_blank" rel="noreferrer" class="px-6 py-3 rounded border border-bg-border bg-bg-card text-text-main font-mono text-sm hover:border-accent-amber hover:text-accent-amber transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber">
+        GitHub ({siteData.socials.github.username})
+      </a>
+      <a href={siteData.socials.linkedin.url} target="_blank" rel="noreferrer" class="px-6 py-3 rounded border border-bg-border bg-bg-card text-text-main font-mono text-sm hover:border-accent-amber hover:text-accent-amber transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber">
+        LinkedIn ({siteData.socials.linkedin.username})
+      </a>
+    </div>
+  </div>
+</section>

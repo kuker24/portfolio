@@ -1,0 +1,15 @@
+---
+import { siteData } from '../data/site';
+---
+<section id="about" class="py-16 border-b border-bg-border/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-xs font-mono uppercase tracking-widest text-accent-amber mb-3">01. Profil & Filosofi</h2>
+    <h3 class="text-2xl sm:text-3xl font-bold text-text-main mb-6">Fokus Rekayasa Perangkat Lunak</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-text-muted leading-relaxed">
+      {siteData.about.narrative.map((paragraph) => (
+        <p class="bg-bg-card p-6 rounded-xl border border-bg-border/60">{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</section>

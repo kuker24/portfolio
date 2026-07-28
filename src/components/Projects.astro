@@ -1,0 +1,49 @@
+---
+import { siteData } from '../data/site';
+---
+<section id="projects" class="py-16 border-b border-bg-border/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="mb-10">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-accent-amber mb-3">02. Portfolio Proyek</h2>
+      <h3 class="text-2xl sm:text-3xl font-bold text-text-main">Production Systems & Serious Hobby Projects</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {siteData.projects.map((project) => (
+        <article class="bg-bg-card border border-bg-border rounded-xl p-6 flex flex-col justify-between hover:border-accent-amber/50 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class={`text-xs font-mono px-2.5 py-1 rounded border ${project.category === 'Production System' ? 'bg-accent-amber/10 border-accent-amber/30 text-accent-amber' : 'bg-bg-surface border-bg-border text-text-muted'}`}>
+                {project.category}
+              </span>
+              <a href={project.repoUrl} target="_blank" rel="noreferrer" class="text-xs font-mono text-text-muted hover:text-accent-amber transition-colors flex items-center space-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">
+                <span>Repository</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+
+            <h4 class="text-xl font-bold text-text-main mb-2">{project.name}</h4>
+            <p class="text-text-muted text-sm leading-relaxed mb-6">{project.description}</p>
+
+            <div class="space-y-3 mb-6">
+              <h5 class="text-xs font-mono text-text-dim uppercase tracking-wider">Keputusan & Arsitektur Teknis</h5>
+              <ul class="space-y-1.5 text-xs text-text-muted list-disc list-inside">
+                {project.architectureNotes.map((note) => (
+                  <li>{note}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-bg-border/60 flex flex-wrap gap-2">
+            {project.techStack.map((tech) => (
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-bg-surface text-text-dim border border-bg-border/40">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

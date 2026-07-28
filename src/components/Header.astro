@@ -1,0 +1,27 @@
+---
+import { siteData } from '../data/site';
+---
+<header class="sticky top-0 z-50 bg-bg-dark/80 backdrop-blur-md border-b border-bg-border/60">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href={`${siteData.basePath}/`} class="text-text-main font-mono text-sm font-semibold tracking-wider hover:text-accent-amber transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">
+      fahmiharun<span class="text-accent-amber">.dev</span>
+    </a>
+    
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-text-muted">
+      <a href="#about" class="hover:text-text-main transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">Tentang</a>
+      <a href="#projects" class="hover:text-text-main transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">Proyek</a>
+      <a href="#capabilities" class="hover:text-text-main transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">Keahlian</a>
+      <a href="#principles" class="hover:text-text-main transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">Prinsip</a>
+      <a href="#contact" class="hover:text-text-main transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber rounded px-1">Kontak</a>
+    </nav>
+
+    <div class="flex items-center space-x-3">
+      <a href={siteData.socials.github.url} target="_blank" rel="noreferrer" class="text-xs font-mono px-3 py-1.5 rounded border border-bg-border bg-bg-surface text-text-main hover:border-accent-amber hover:text-accent-amber transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber">
+        GitHub
+      </a>
+      <a href={siteData.socials.linkedin.url} target="_blank" rel="noreferrer" class="text-xs font-mono px-3 py-1.5 rounded border border-bg-border bg-bg-surface text-text-main hover:border-accent-amber hover:text-accent-amber transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>

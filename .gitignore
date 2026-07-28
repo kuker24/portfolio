@@ -1,7 +1,14 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# Astro cache & temp
 .astro/
-.DS_Store
+
+# Environment files & local state
 .env
 .env.*
 !.env.example
+.DS_Store
