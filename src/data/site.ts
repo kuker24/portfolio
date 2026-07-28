@@ -13,7 +13,8 @@ export const profile = {
   summary:
     'I build production education platforms, privacy-first web systems, and practical developer tools with a focus on security, maintainability, and real-world usability.',
   github: 'https://github.com/kuker24',
-  email: 'mailto:fahmiharun234@gmail.com',
+  publicEmail: '',
+  linkedIn: '',
 };
 
 export const projects: Project[] = [
