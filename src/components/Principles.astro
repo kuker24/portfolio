@@ -7,33 +7,27 @@ import { siteData } from '../data/site';
     
     <!-- Section Header -->
     <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
-        <span class="font-mono text-xs text-violet font-medium">&gt; ENGINEERING_DISCIPLINE</span>
+      <div class="inline-flex items-center">
+        <span class="font-mono text-xs text-violet font-medium">Principles</span>
       </div>
       <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
         Engineering Principles
       </h2>
       <p class="font-sans text-base text-ash leading-relaxed">
-        Prinsip kerja yang memandu setiap desain arsitektur, pemilihan teknologi, dan standar pengujian kode.
+        Core principles guiding architecture decisions, technology selection, and code quality standards.
       </p>
     </div>
 
-    <!-- Documentation Block Layout -->
+    <!-- Clean Block Layout -->
     <div class="rounded-card border border-graphite bg-void divide-y divide-graphite">
       {siteData.principles.map((principle, index) => (
-        <div class="p-6 sm:p-8 space-y-4 hover:bg-void/40 transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <span class="font-mono text-sm text-violet font-medium">0{index + 1}.</span>
-              <h3 class="font-sans text-xl sm:text-2xl text-white font-medium tracking-tight">
-                {principle.title}
-              </h3>
-            </div>
-            <span class="font-mono text-xs text-ash border border-graphite/60 rounded-btn px-2.5 py-1 bg-void self-start sm:self-auto">
-              {principle.summary}
-            </span>
+        <div class="p-6 sm:p-8 space-y-3 hover:bg-void/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-sm text-violet font-medium">0{index + 1}.</span>
+            <h3 class="font-sans text-xl sm:text-2xl text-white font-medium tracking-tight">
+              {principle.title}
+            </h3>
           </div>
-
           <p class="font-sans text-base text-bone leading-relaxed max-w-4xl sm:pl-9">
             {principle.detail}
           </p>

@@ -3,7 +3,7 @@ import { siteData } from '../data/site';
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Selected work', href: '#projects' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Principles', href: '#principles' },
   { label: 'Contact', href: '#contact' },
@@ -13,8 +13,8 @@ const navItems = [
 <header class="sticky top-0 z-50 bg-void/90 backdrop-blur-md border-b border-graphite transition-all duration-200">
   <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href={`${siteData.basePath}/`} class="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-violet rounded-btn px-2 py-1 text-[15px]">
-      <span class="font-mono text-xs text-violet group-hover:text-violet-glow transition-colors">[ FH ]</span>
+    <a href={`${siteData.basePath}/`} class="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-violet rounded-btn px-2 py-1">
+      <span class="font-mono text-xs text-violet font-medium">FH</span>
       <span class="font-sans font-medium text-sm text-white tracking-tight group-hover:text-bone transition-colors">{siteData.name}</span>
     </a>
 
@@ -38,7 +38,7 @@ const navItems = [
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-btn border border-graphite text-xs font-mono text-white bg-transparent hover:border-white transition-all duration-150"
       >
-        <span>github.com/kuker24</span>
+        <span>GitHub</span>
         <svg class="w-3.5 h-3.5 text-ash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
@@ -49,7 +49,7 @@ const navItems = [
     <button
       id="mobile-menu-btn"
       type="button"
-      class="md:hidden p-2 rounded-btn border border-graphite text-smoke hover:text-white hover:border-white transition-colors"
+      class="md:hidden p-2.5 rounded-btn border border-graphite text-smoke hover:text-white hover:border-white transition-colors"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Toggle navigation menu"
@@ -82,7 +82,7 @@ const navItems = [
         rel="noopener noreferrer"
         class="inline-flex w-full items-center justify-center gap-2 px-4 py-2 rounded-btn border border-graphite text-xs font-mono text-white bg-transparent hover:border-white transition-colors"
       >
-        <span>github.com/kuker24</span>
+        <span>GitHub</span>
         <svg class="w-3.5 h-3.5 text-ash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>

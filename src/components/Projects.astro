@@ -10,59 +10,46 @@ const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobb
     
     <!-- Section Header -->
     <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
-        <span class="font-mono text-xs text-violet font-medium">&gt; FEATURED_WORK</span>
+      <div class="inline-flex items-center">
+        <span class="font-mono text-xs text-violet font-medium">Selected work</span>
       </div>
       <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
         Featured Systems &amp; Projects
       </h2>
       <p class="font-sans text-base text-ash leading-relaxed">
-        Rekayasa sistem terverifikasi, arsitektur produksi, dan proyek eksperimental yang dibangun dengan standar keamanan dan struktur yang kokoh.
+        Production systems, academic infrastructure, and open-source applications built with focus on architecture, security, and reliability.
       </p>
     </div>
 
-    <!-- Production Systems (Large Featured Terminal Cards) -->
+    <!-- Production Systems (Large Cards) -->
     <div class="space-y-8">
       <div class="flex items-center justify-between border-b border-graphite pb-3">
-        <h3 class="font-mono text-xs text-ash uppercase tracking-wider">// Production Systems</h3>
-        <span class="font-mono text-xs text-violet">[ 01 — 02 ]</span>
+        <h3 class="font-sans text-sm font-medium text-bone">Production</h3>
       </div>
 
       <div class="grid grid-cols-1 gap-8">
         {productionProjects.map((project) => (
           <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 hover:border-smoke/40 transition-colors duration-200">
-            <!-- Terminal Header -->
-            <div class="flex items-center justify-between border-b border-graphite/60 pb-4">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-graphite"></span>
-                <span class="w-3 h-3 rounded-full bg-graphite"></span>
-                <span class="w-3 h-3 rounded-full bg-graphite"></span>
-                <span class="font-mono text-xs text-smoke ml-2">{project.id}.config.ts</span>
-              </div>
-              <span class="font-mono text-xs text-violet px-2.5 py-0.5 rounded-badge border border-graphite">
-                {project.category}
+            <!-- Header Category -->
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-violet">
+                {project.displayCategory}
               </span>
             </div>
 
             <!-- Main Info -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div class="lg:col-span-7 space-y-4">
-                <div class="space-y-2">
-                  <h4 class="font-sans text-2xl sm:text-3xl text-white font-medium tracking-tight">
-                    {project.name}
-                  </h4>
-                  <p class="font-mono text-xs text-violet">
-                    repo: {project.repoUrl}
-                  </p>
-                </div>
+              <div class="lg:col-span-7 space-y-3">
+                <h4 class="font-sans text-2xl sm:text-3xl text-white font-medium tracking-tight">
+                  {project.name}
+                </h4>
                 <p class="font-sans text-sm sm:text-base text-bone leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
-              <!-- Tech Stack Monospaced Tokens -->
-              <div class="lg:col-span-5 space-y-3">
-                <span class="font-mono text-xs text-smoke block">tech_stack:</span>
+              <!-- Tech Stack Tokens -->
+              <div class="lg:col-span-5 space-y-2">
                 <div class="flex flex-wrap gap-2">
                   {project.techStack.map(tech => (
                     <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2.5 py-1">
@@ -73,23 +60,19 @@ const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobb
               </div>
             </div>
 
-            <!-- Structured Architecture Terminal Output -->
-            <div class="rounded-lg border border-graphite/60 bg-void p-4 space-y-2 font-mono text-xs">
-              <div class="text-smoke border-b border-graphite/40 pb-1.5 flex items-center justify-between">
-                <span>// Architecture & Security Highlights</span>
-                <span class="text-pulse-green">verified</span>
-              </div>
-              <ul class="space-y-1.5 pt-1 text-ash">
-                {project.architectureNotes.map(note => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-violet shrink-0">&gt;</span>
+            <!-- Architecture Notes (Max 3) -->
+            <div class="rounded-lg border border-graphite/60 bg-void p-4 space-y-2 font-sans text-xs sm:text-sm">
+              <ul class="space-y-2 text-ash">
+                {project.architectureNotes.slice(0, 3).map(note => (
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-violet shrink-0">•</span>
                     <span class="leading-relaxed">{note}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <!-- Actions Link -->
+            <!-- Action Link -->
             <div class="pt-2 flex items-center justify-between">
               <a
                 href={project.repoUrl}
@@ -97,38 +80,31 @@ const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobb
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 font-sans text-sm font-medium text-white hover:text-violet transition-colors group"
               >
-                <span>Inspect Repository</span>
+                <span>View on GitHub</span>
                 <svg class="w-4 h-4 text-ash group-hover:text-violet group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
-              <span class="font-mono text-xs text-smoke">STATUS: PRODUCTION</span>
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Serious Hobby Projects (2-Column Grid) -->
+    <!-- Independent Projects (2-Column Grid) -->
     <div class="space-y-8 pt-4">
       <div class="flex items-center justify-between border-b border-graphite pb-3">
-        <h3 class="font-mono text-xs text-ash uppercase tracking-wider">// Serious Hobby Projects</h3>
-        <span class="font-mono text-xs text-violet">[ 03 — 04 ]</span>
+        <h3 class="font-sans text-sm font-medium text-bone">Independent Projects</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {hobbyProjects.map((project) => (
-          <div class="rounded-card border border-graphite bg-void p-6 space-y-6 flex flex-col justify-between hover:border-smoke/40 transition-colors duration-200">
+          <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-smoke/40 transition-colors duration-200">
             <div class="space-y-4">
-              <!-- Header -->
-              <div class="flex items-center justify-between border-b border-graphite/60 pb-3">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-graphite"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-graphite"></span>
-                  <span class="font-mono text-xs text-smoke">{project.id}.app</span>
-                </div>
+              <!-- Category Tag -->
+              <div class="flex items-center justify-between">
                 <span class="font-mono text-xs text-violet">
-                  {project.category}
+                  {project.displayCategory}
                 </span>
               </div>
 
@@ -137,39 +113,32 @@ const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobb
                 <h4 class="font-sans text-xl text-white font-medium tracking-tight">
                   {project.name}
                 </h4>
-                <p class="font-mono text-xs text-violet truncate">
-                  {project.repoUrl}
-                </p>
-                <p class="font-sans text-sm text-ash leading-relaxed pt-1">
+                <p class="font-sans text-sm text-ash leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               <!-- Tech Stack -->
-              <div class="space-y-2 pt-2">
-                <span class="font-mono text-xs text-smoke block">stack:</span>
-                <div class="flex flex-wrap gap-1.5">
-                  {project.techStack.map(tech => (
-                    <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2 py-0.5">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                {project.techStack.map(tech => (
+                  <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2 py-0.5">
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-              <!-- Key Highlights -->
-              <div class="rounded-lg border border-graphite/60 bg-void p-3.5 space-y-1.5 font-mono text-xs">
-                <span class="text-smoke block border-b border-graphite/40 pb-1">// Core Features</span>
-                {project.architectureNotes.map(note => (
-                  <div class="flex items-start gap-1.5 text-ash">
-                    <span class="text-violet shrink-0">&gt;</span>
+              <!-- Architecture Highlights (Max 3) -->
+              <div class="rounded-lg border border-graphite/60 bg-void p-3.5 space-y-2 font-sans text-xs">
+                {project.architectureNotes.slice(0, 3).map(note => (
+                  <div class="flex items-start gap-2 text-ash">
+                    <span class="text-violet shrink-0">•</span>
                     <span class="leading-normal">{note}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <!-- Footer Action Link -->
+            <!-- Action Link -->
             <div class="pt-4 border-t border-graphite/60 flex items-center justify-between">
               <a
                 href={project.repoUrl}
@@ -177,12 +146,11 @@ const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobb
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 font-sans text-xs font-medium text-white hover:text-violet transition-colors group"
               >
-                <span>View Source</span>
+                <span>View on GitHub</span>
                 <svg class="w-3.5 h-3.5 text-ash group-hover:text-violet group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
-              <span class="font-mono text-[11px] text-smoke">OPEN SOURCE</span>
             </div>
           </div>
         ))}

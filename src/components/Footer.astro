@@ -4,11 +4,9 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="py-12 border-t border-graphite bg-void">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-smoke">
-    <div class="flex items-center gap-2">
-      <span class="text-white font-medium">{siteData.name}</span>
-      <span>© {currentYear}</span>
-      <span class="text-ash">• Static Portfolio</span>
+  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-smoke">
+    <div>
+      <span>© {currentYear} {siteData.name}</span>
     </div>
 
     <div class="flex items-center gap-6">

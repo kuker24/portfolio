@@ -3,20 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import { siteData } from '../data/site';
 ---
 
-<Layout title={`404 — Page Not Found | ${siteData.name}`}>
+<Layout title={`404 — Page not found | ${siteData.name}`}>
   <section class="min-h-[70vh] flex items-center justify-center py-20">
     <div class="max-w-md mx-auto px-4 text-center space-y-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
-        <span class="w-2 h-2 rounded-full bg-alarm-red"></span>
-        <span class="font-mono text-xs text-alarm-red font-medium">404 // NOT_FOUND</span>
+      <div class="inline-flex items-center gap-2">
+        <span class="font-mono text-xs text-alarm-red font-medium">404</span>
       </div>
 
       <h1 class="font-serif text-4xl sm:text-5xl text-white font-normal">
-        Page Not Found
+        Page not found
       </h1>
 
       <p class="font-sans text-sm text-ash leading-relaxed">
-        Halaman yang Anda cari tidak ditemukan atau telah dipindahkan ke lokasi lain dalam arsitektur situs.
+        The page you are looking for could not be found.
       </p>
 
       <div class="pt-4">
@@ -24,7 +23,7 @@ import { siteData } from '../data/site';
           href={`${siteData.basePath}/`}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn border border-graphite text-xs font-mono text-white bg-transparent hover:border-white transition-all duration-150"
         >
-          <span>&lt; Return to Homepage</span>
+          <span>Back home</span>
         </a>
       </div>
     </div>

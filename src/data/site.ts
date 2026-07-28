@@ -2,6 +2,7 @@ export interface Project {
   id: string;
   name: string;
   category: 'Production System' | 'Serious Hobby Project';
+  displayCategory: 'Production' | 'Independent Project';
   repoUrl: string;
   description: string;
   architectureNotes: string[];
@@ -24,7 +25,7 @@ export interface EngineeringPrinciple {
 export const siteData = {
   name: "Fahmi Harun",
   title: "Full-Stack Developer · Educational Systems Builder · AI Engineering Educator",
-  description: "Bespoke dark editorial portfolio of Fahmi Harun, specializing in full-stack web applications, educational systems architecture, and teaching coding and AI engineering.",
+  description: "Personal portfolio of Fahmi Harun, specializing in full-stack web applications, educational systems architecture, and AI engineering education.",
   siteUrl: "https://kuker24.github.io",
   basePath: "/portfolio",
   socials: {
@@ -48,10 +49,10 @@ export const siteData = {
     aspectRatio: "1169/1541",
   },
   about: {
-    intro: "Saya seorang Full-Stack Developer dan pendidik di bidang Coding serta Kecerdasan Artifisial. Berfokus pada pembangunan sistem perangkat lunak yang terstruktur, aman, dan mudah diakses.",
+    intro: "Full-Stack Developer and AI Educator focused on building structured, secure, and accessible software systems.",
     narrative: [
-      "Perjalanan engineering saya dibentuk oleh pengalaman merancang arsitektur sistem manajemen pendidikan, platform ujian online, dan utilitas aplikasi terdistribusi.",
-      "Sebagai AI Engineering Educator, saya membimbing pembelajar dan pengembang untuk memanfaatkan teknologi AI secara bertanggung jawab, terstruktur, dan berbasis pada prinsip-prinsip rekayasa perangkat lunak yang kokoh."
+      "My engineering journey is defined by designing academic management platforms, secure online examination infrastructure, and distributed application utilities.",
+      "As an AI Engineering Educator, I mentor developers and learners to leverage artificial intelligence responsibly through solid software engineering principles."
     ],
   },
   projects: [
@@ -59,12 +60,13 @@ export const siteData = {
       id: "siab2",
       name: "SIAB2",
       category: "Production System",
+      displayCategory: "Production",
       repoUrl: "https://github.com/kuker24/abensi",
-      description: "Sistem informasi akademik dan kehadiran terintegrasi dengan integrasi pembaca QR Android serta verifikasi transaksi aman.",
+      description: "Integrated academic and attendance management system with Android QR reader integration and secure transaction verification.",
       architectureNotes: [
-        "Worker reconciliation untuk validasi status dan sinkronisasi data presensi.",
-        "Integrasi Android QR Reader resmi dengan validasi HMAC-signed request, nonce, dan signature.",
-        "Prosedur audit, rekonsiliasi data, dan runbook pemeliharaan produksi terstruktur."
+        "Worker reconciliation for status validation and attendance data sync.",
+        "Android QR reader integration with HMAC-signed request validation, nonce, and signature checks.",
+        "Structured production audit procedures and data reconciliation runbooks."
       ],
       techStack: [
         "NestJS",
@@ -87,12 +89,13 @@ export const siteData = {
       id: "siab1",
       name: "SIAB1",
       category: "Production System",
+      displayCategory: "Production",
       repoUrl: "https://github.com/kuker24/Ujianonline",
-      description: "Platform ujian online dengan manajemen bank soal, koreksi otomatis, integrasi pengawasan ujian, dan notifikasi real-time.",
+      description: "Online examination platform featuring question bank management, automated grading, exam proctoring integration, and real-time alerts.",
       architectureNotes: [
-        "Modul pengolahan bank soal, evaluasi jawaban otomatis, serta integrasi Safe Exam Browser.",
-        "Pemrosesan tugas latar belakang secara asinkron menggunakan Celery dan Redis.",
-        "Pengiriman notifikasi real-time via WebSocket serta pemantauan sistem dengan Prometheus dan Grafana."
+        "Question bank processing, automatic answer evaluation, and Safe Exam Browser integration.",
+        "Asynchronous background task processing powered by Celery and Redis.",
+        "Real-time notifications via WebSockets with Prometheus and Grafana monitoring."
       ],
       techStack: [
         "FastAPI",
@@ -116,12 +119,13 @@ export const siteData = {
       id: "lensadiri",
       name: "LensaDiri",
       category: "Serious Hobby Project",
+      displayCategory: "Independent Project",
       repoUrl: "https://github.com/kuker24/LensaDiri",
-      description: "Aplikasi refleksi diri personal berbasis privasi dengan proteksi data ketat dan batas analisis ilmiah yang bertanggung jawab.",
+      description: "Privacy-first personal self-reflection web application built with strict data protection and server-only database boundaries.",
       architectureNotes: [
-        "Keamanan tingkat data berbasis PostgreSQL Row-Level Security (RLS) dan batas database server-only.",
-        "Proteksi keamanan aplikasi mencakup CSRF protection dan session HMAC-hashed opaque.",
-        "Layanan parsial consent & audit log serta pembatasan klaim analisis ilmiah secara akuntabel."
+        "Data-level security via PostgreSQL Row-Level Security (RLS) and server-only data fetching boundaries.",
+        "Application defense including CSRF protection and opaque HMAC session hashes.",
+        "Granular user consent controls and automated testing suite with Vitest and Playwright."
       ],
       techStack: [
         "Next.js",
@@ -136,20 +140,21 @@ export const siteData = {
       ],
       highlights: [
         "PostgreSQL Row-Level Security & Server-only boundary",
-        "Autentikasi Argon2id & HMAC opaque sessions",
-        "Pengujian otomatis Vitest & Playwright"
+        "Argon2id authentication & HMAC opaque sessions",
+        "Automated testing with Vitest & Playwright"
       ]
     },
     {
       id: "streamhive",
       name: "StreamHive",
       category: "Serious Hobby Project",
+      displayCategory: "Independent Project",
       repoUrl: "https://github.com/kuker24/StreamLocal",
-      description: "Aplikasi streaming media jaringan lokal berbasis desktop launcher dengan koneksi QR device dan manajemen autentikasi.",
+      description: "Local network media streaming application powered by a desktop launcher, QR device pairing, and streaming authentication.",
       architectureNotes: [
-        "Pemutaran video dan audio interaktif (seekable) menggunakan HTTP Range request dan FFmpeg.",
-        "Dukungan subtitle, pembuatan koneksi perangkat via QR code, dan tray launcher desktop.",
-        "Autentikasi multi-pengguna serta otomasi skrip instalasi lintas platform."
+        "Seekable interactive video and audio playback using HTTP Range requests and FFmpeg.",
+        "Subtitle support, QR code device pairing, and desktop system tray integration.",
+        "Multi-user authentication and cross-platform installation automation."
       ],
       techStack: [
         "Python",
@@ -170,35 +175,35 @@ export const siteData = {
   capabilities: [
     {
       title: "Full-Stack Web Engineering",
-      description: "Mengembangkan aplikasi web dari arsitektur frontend responsif hingga backend terstruktur dan teruji.",
+      description: "Developing web applications from responsive frontend architecture to structured, well-tested backend services.",
       skills: ["NestJS", "FastAPI", "Next.js", "Astro", "React", "TypeScript", "Python"]
     },
     {
       title: "Educational Systems & AI Instruction",
-      description: "Merancang platform akademik serta materi pembelajaran Coding dan Kecerdasan Artifisial berbasis rekayasa terstruktur.",
-      skills: ["EdTech Architecture", "Safe Exam Integration", "Interactive Learning Tools", "AI Engineering Workflows"]
+      description: "Designing academic platforms and educational curricula focused on software engineering and artificial intelligence.",
+      skills: ["EdTech Architecture", "Safe Exam Integration", "Interactive Learning Tools", "AI Workflows"]
     },
     {
       title: "System Architecture & Security Controls",
-      description: "Menerapkan kontrol keamanan data, otorisasi terstruktur, monitoring sistem, dan pengujian terotomatisasi.",
+      description: "Implementing data access security controls, structured authorization, telemetry monitoring, and automated test suites.",
       skills: ["PostgreSQL RLS", "Docker & Nginx", "Prometheus & Grafana", "Argon2id & HMAC", "Vitest & Playwright"]
     }
   ] as CapabilityGroup[],
   principles: [
     {
       title: "Architecture over Unverified Claims",
-      summary: "Fokus pada struktur teknis nyata.",
-      detail: "Setiap komponen dan fitur didokumentasikan berdasarkan arsitektur, modul keamanan, dan bukti kode yang dapat diverifikasi."
+      summary: "Focus on real technical structure.",
+      detail: "Every component and feature is documented based on concrete architecture, security controls, and verifiable code."
     },
     {
       title: "Accessibility & Privacy Baseline",
-      summary: "Keamanan dan kenyamanan pengguna.",
-      detail: "Perangkat lunak dibangun dengan batas aksesibilitas yang baik serta kontrol privasi data pengguna yang transparan."
+      summary: "User privacy and usability.",
+      detail: "Software is built with strong accessibility standards and clear, transparent user data privacy controls."
     },
     {
       title: "Honest & Transparent Engineering",
-      summary: "Pengembangan berbasis standar rekayasa.",
-      detail: "Menampilkan karya berdasarkan fakta teknis, pola desain yang bersih, dan standar pengujian tanpa metrik performa yang tidak terukur."
+      summary: "Engineering-first standards.",
+      detail: "Presenting work based on factual technical evidence, clean design patterns, and testable code."
     }
   ] as EngineeringPrinciple[]
 };
