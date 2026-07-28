@@ -3,17 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import { siteData } from '../data/site';
 ---
 
-<Layout title="404 — Halaman Tidak Ditemukan | Fahmi Harun">
-  <section class="py-24 text-center">
-    <div class="max-w-md mx-auto px-4">
-      <span class="text-xs font-mono text-accent-amber uppercase tracking-widest">Error 404</span>
-      <h1 class="text-4xl font-bold text-text-main mt-2 mb-4">Halaman Tidak Ditemukan</h1>
-      <p class="text-text-muted text-sm mb-8">
-        Halaman yang Anda cari tidak ada atau telah dipindahkan.
+<Layout title={`404 — Page Not Found | ${siteData.name}`}>
+  <section class="min-h-[70vh] flex items-center justify-center py-20">
+    <div class="max-w-md mx-auto px-4 text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
+        <span class="w-2 h-2 rounded-full bg-alarm-red"></span>
+        <span class="font-mono text-xs text-alarm-red font-medium">404 // NOT_FOUND</span>
+      </div>
+
+      <h1 class="font-serif text-4xl sm:text-5xl text-white font-normal">
+        Page Not Found
+      </h1>
+
+      <p class="font-sans text-sm text-ash leading-relaxed">
+        Halaman yang Anda cari tidak ditemukan atau telah dipindahkan ke lokasi lain dalam arsitektur situs.
       </p>
-      <a href={`${siteData.basePath}/`} class="inline-block px-6 py-3 rounded bg-accent-amber text-bg-dark font-medium text-sm hover:bg-accent-copper transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-amber">
-        Kembali ke Beranda
-      </a>
+
+      <div class="pt-4">
+        <a
+          href={`${siteData.basePath}/`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn border border-graphite text-xs font-mono text-white bg-transparent hover:border-white transition-all duration-150"
+        >
+          <span>&lt; Return to Homepage</span>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

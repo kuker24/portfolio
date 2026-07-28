@@ -4,25 +4,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: {
-          dark: '#090A0F',
-          surface: '#0E1117',
-          card: '#161B22',
-          border: '#21262D',
-        },
-        text: {
-          main: '#F0F6FC',
-          muted: '#8B949E',
-          dim: '#6E7681',
-        },
-        accent: {
-          amber: '#E3B341',
-          copper: '#F0883E',
-        },
+        void: 'var(--color-void-black)',
+        graphite: 'var(--color-graphite-hairline)',
+        white: 'var(--color-white)',
+        bone: 'var(--color-bone-white)',
+        ash: 'var(--color-ash-gray)',
+        smoke: 'var(--color-smoke-gray)',
+        iron: 'var(--color-iron)',
+        charcoal: 'var(--color-charcoal)',
+        violet: 'var(--color-iris-violet)',
+        'violet-glow': 'var(--color-iris-violet-glow)',
+        'signal-blue': 'var(--color-signal-blue)',
+        'pulse-green': 'var(--color-pulse-green)',
+        'alarm-red': 'var(--color-alarm-red)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        sans: ['var(--font-inter)'],
+        serif: ['var(--font-serif)'],
+        mono: ['var(--font-mono)'],
+      },
+      borderRadius: {
+        btn: 'var(--radius-button)',
+        badge: 'var(--radius-badge)',
+        input: 'var(--radius-input)',
+        card: 'var(--radius-card)',
+        panel: 'var(--radius-panel)',
+        pill: 'var(--radius-pill)',
+      },
+      maxWidth: {
+        site: 'var(--page-max-width)',
       },
     },
   },

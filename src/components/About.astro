@@ -1,15 +1,50 @@
 ---
 import { siteData } from '../data/site';
 ---
-<section id="about" class="py-16 border-b border-bg-border/40">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <h2 class="text-xs font-mono uppercase tracking-widest text-accent-amber mb-3">01. Profil & Filosofi</h2>
-    <h3 class="text-2xl sm:text-3xl font-bold text-text-main mb-6">Fokus Rekayasa Perangkat Lunak</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-text-muted leading-relaxed">
-      {siteData.about.narrative.map((paragraph) => (
-        <p class="bg-bg-card p-6 rounded-xl border border-bg-border/60">{paragraph}</p>
-      ))}
+<section id="about" class="py-20 border-b border-graphite">
+  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Section Header -->
+    <div class="space-y-4 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
+        <span class="font-mono text-xs text-violet font-medium">&gt; ABOUT_NARRATIVE</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
+        Engineering &amp; Instruction
+      </h2>
     </div>
+
+    <!-- Wide Editorial Narrative Box -->
+    <div class="rounded-card border border-graphite bg-void p-8 sm:p-12 space-y-8">
+      
+      <div class="max-w-3xl space-y-6">
+        <p class="font-sans text-lg sm:text-xl text-bone leading-relaxed font-normal">
+          {siteData.about.intro}
+        </p>
+
+        <div class="h-px bg-graphite w-full my-6"></div>
+
+        {siteData.about.narrative.map((paragraph) => (
+          <p class="font-sans text-base text-ash leading-relaxed">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      <!-- Quick Context Terminal Line -->
+      <div class="pt-6 border-t border-graphite/60 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-smoke">
+        <div class="flex items-center gap-4">
+          <span class="text-violet">focus:</span>
+          <span class="text-bone">Full-Stack Architecture · AI Engineering · Security</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-ash">discipline:</span>
+          <span class="text-pulse-green">Evidence-driven</span>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>

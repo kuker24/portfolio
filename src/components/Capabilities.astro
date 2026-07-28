@@ -1,27 +1,61 @@
 ---
 import { siteData } from '../data/site';
 ---
-<section id="capabilities" class="py-16 border-b border-bg-border/40">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="mb-10">
-      <h2 class="text-xs font-mono uppercase tracking-widest text-accent-amber mb-3">03. Domain & Keahlian</h2>
-      <h3 class="text-2xl sm:text-3xl font-bold text-text-main">Kemampuan Rekayasa & Edukasi</h3>
+
+<section id="capabilities" class="py-20 border-b border-graphite">
+  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Section Header -->
+    <div class="space-y-4 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-badge border border-graphite bg-void">
+        <span class="font-mono text-xs text-violet font-medium">&gt; SYSTEM_CAPABILITIES</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
+        Capabilities &amp; Stack
+      </h2>
+      <p class="font-sans text-base text-ash leading-relaxed">
+        Kompetensi teknis utama dalam pengembangan aplikasi web, arsitektur sistem akademik, kontrol keamanan, dan pengajaran AI.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {siteData.capabilities.map((cap) => (
-        <div class="bg-bg-card border border-bg-border rounded-xl p-6">
-          <h4 class="text-lg font-bold text-text-main mb-3">{cap.title}</h4>
-          <p class="text-sm text-text-muted leading-relaxed mb-6">{cap.description}</p>
-          <div class="flex flex-wrap gap-2">
-            {cap.skills.map((skill) => (
-              <span class="text-xs font-mono px-2 py-1 rounded bg-bg-surface text-text-main border border-bg-border">
-                {skill}
+    <!-- 3-Column Graphite Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {siteData.capabilities.map((capability, index) => (
+        <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-smoke/40 transition-colors duration-200">
+          <div class="space-y-4">
+            <!-- Header Tag -->
+            <div class="flex items-center justify-between border-b border-graphite/60 pb-3">
+              <span class="font-mono text-xs text-violet">
+                0{index + 1} // DOMAIN
               </span>
-            ))}
+              <span class="w-2 h-2 rounded-full bg-graphite"></span>
+            </div>
+
+            <!-- Title & Description -->
+            <div class="space-y-2">
+              <h3 class="font-sans text-xl text-white font-medium tracking-tight">
+                {capability.title}
+              </h3>
+              <p class="font-sans text-sm text-ash leading-relaxed">
+                {capability.description}
+              </p>
+            </div>
+          </div>
+
+          <!-- Skills Tag Cloud -->
+          <div class="pt-4 border-t border-graphite/60 space-y-2">
+            <span class="font-mono text-[11px] text-smoke block uppercase tracking-wider">skills &amp; tooling</span>
+            <div class="flex flex-wrap gap-1.5">
+              {capability.skills.map(skill => (
+                <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2.5 py-1">
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>

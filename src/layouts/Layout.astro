@@ -2,6 +2,7 @@
 import { siteData } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -68,9 +69,12 @@ const jsonLd = {
       }
     </style>
   </head>
-  <body class="bg-bg-dark text-text-main font-sans antialiased selection:bg-accent-amber selection:text-bg-dark min-h-screen flex flex-col overflow-x-hidden">
+  <body class="bg-void text-bone font-sans antialiased min-h-screen flex flex-col overflow-x-hidden selection:bg-violet selection:text-white">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-void focus:text-white focus:border focus:border-graphite focus:rounded-btn focus:font-mono focus:text-xs">
+      Skip to content
+    </a>
     <Header />
-    <main class="flex-grow">
+    <main id="main-content" class="flex-grow">
       <slot />
     </main>
     <Footer />
