@@ -13,17 +13,17 @@ const navItems = [
 <header class="sticky top-0 z-50 bg-void/90 backdrop-blur-md border-b border-graphite transition-all duration-200">
   <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href={`${siteData.basePath}/`} class="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-violet rounded-btn px-1 py-0.5">
+    <a href={`${siteData.basePath}/`} class="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-violet rounded-btn px-2 py-1 text-[15px]">
       <span class="font-mono text-xs text-violet group-hover:text-violet-glow transition-colors">[ FH ]</span>
       <span class="font-sans font-medium text-sm text-white tracking-tight group-hover:text-bone transition-colors">{siteData.name}</span>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+    <nav class="hidden md:flex items-center gap-6" aria-label="Main Navigation">
       {navItems.map(item => (
         <a
           href={item.href}
-          class="font-sans text-sm text-smoke hover:text-white transition-colors duration-150 py-1"
+          class="font-sans text-sm text-smoke hover:text-white transition-colors duration-150 px-2.5 py-1.5 rounded-btn focus:outline-none focus:ring-1 focus:ring-violet"
         >
           {item.label}
         </a>
