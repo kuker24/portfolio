@@ -42,6 +42,9 @@ const pageDescription = profile.summary;
             <a class="button secondary" href={profile.github} target="_blank" rel="noreferrer">
               GitHub profile
             </a>
+            <a class="button secondary" href={profile.linkedIn} target="_blank" rel="noreferrer">
+              LinkedIn profile
+            </a>
           </div>
         </div>
 
@@ -52,7 +55,7 @@ const pageDescription = profile.summary;
             height="900"
             alt="Placeholder portrait for Fahmi Harun"
           />
-          <p>Replace with a verified portrait in <code>public/</code>.</p>
+          <p>Replace with the verified <code>myself.jpeg</code> portrait.</p>
         </div>
       </section>
 
@@ -132,12 +135,15 @@ const pageDescription = profile.summary;
 
       <section id="contact" class="section contact" aria-labelledby="contact-title">
         <p class="section-index">05 · Contact</p>
-        <h2 id="contact-title">The public contact channel is being prepared.</h2>
+        <h2 id="contact-title">Find my work and professional profile.</h2>
         <p>
-          For now, review the source code and project history through GitHub. A verified public email,
-          LinkedIn profile, and downloadable CV can be added later.
+          Review my repositories and project history on GitHub, or connect through my verified LinkedIn profile.
+          Public email and downloadable CV remain intentionally unset until separately confirmed.
         </p>
-        <a class="button primary" href={profile.github} target="_blank" rel="noreferrer">Open GitHub</a>
+        <div class="hero-actions">
+          <a class="button primary" href={profile.github} target="_blank" rel="noreferrer">Open GitHub</a>
+          <a class="button secondary" href={profile.linkedIn} target="_blank" rel="noreferrer">Open LinkedIn</a>
+        </div>
       </section>
     </main>
 
