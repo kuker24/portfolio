@@ -12,9 +12,12 @@ export const profile = {
   headline: 'Full-Stack Developer · AI Engineering Educator · Security-Focused Builder',
   summary:
     'I build production education platforms, privacy-first web systems, and practical developer tools with a focus on security, maintainability, and real-world usability.',
+  portraitSourceFile: 'myself.jpeg',
+  portraitAlt: 'Portrait of Fahmi Harun',
   github: 'https://github.com/kuker24',
+  linkedIn: 'https://www.linkedin.com/in/fahmiharun123/',
   publicEmail: '',
-  linkedIn: '',
+  cvUrl: '',
 };
 
 export const projects: Project[] = [
