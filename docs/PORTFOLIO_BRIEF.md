@@ -3,7 +3,8 @@
 ## Owner
 
 **Fahmi Harun**  
-GitHub: `kuker24`
+GitHub: `https://github.com/kuker24`  
+LinkedIn: `https://www.linkedin.com/in/fahmiharun123/`
 
 ## Primary objective
 
@@ -97,17 +98,27 @@ Do not add dates, organizations, contract values, user counts, uptime, performan
 - no generic developer illustrations
 - no excessive badge walls or GitHub-stat cards
 
-## Required user-provided assets
+## Confirmed public inputs
 
-These should remain explicit placeholders until supplied:
+- portrait source file: `myself.jpeg`
+- portrait owner: Fahmi Harun
+- portrait alt text: `Portrait of Fahmi Harun`
+- GitHub: `https://github.com/kuker24`
+- LinkedIn: `https://www.linkedin.com/in/fahmiharun123/`
 
-- high-resolution portrait
+The connected coding AI must locate `myself.jpeg` in the worktree and use it as the primary portrait. If necessary for static hosting, copy or move it into `public/images/` and optionally generate an optimized WebP derivative. Preserve the original file and do not replace it with a stock image, generated avatar, or unrelated illustration.
+
+Do not reshape facial features, perform identity-changing edits, or apply excessive beauty retouching. Non-destructive cropping, responsive `object-fit`, orientation correction, and web optimization are allowed.
+
+## Inputs still pending confirmation
+
 - preferred public email
-- LinkedIn URL, when available
-- downloadable CV, when available
+- downloadable CV
 - verified project screenshots
-- concise personal biography
-- confirmed experience dates and roles
+- concise personal biography beyond the current factual summary
+- confirmed experience dates and formal role names
+
+These must remain absent or clearly marked as pending. Do not invent them.
 
 ## Hosting constraint
 
