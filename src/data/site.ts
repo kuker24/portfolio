@@ -24,8 +24,8 @@ export interface EngineeringPrinciple {
 
 export const siteData = {
   name: "Fahmi Harun",
-  title: "Full-Stack Developer · Educational Systems Builder · AI Engineering Educator",
-  description: "Personal portfolio of Fahmi Harun, specializing in full-stack web applications, educational systems architecture, and AI engineering education.",
+  title: "Full-Stack & AI Systems Builder · AI Educator · Computer Engineering Student",
+  description: "Personal portfolio of Fahmi Harun — software and AI-related systems, AI education, and Computer Engineering at Politeknik Caltex Riau.",
   siteUrl: "https://kuker24.github.io",
   basePath: "/portfolio",
   socials: {
@@ -39,6 +39,11 @@ export const siteData = {
       url: "https://www.linkedin.com/in/fahmiharun123/",
       username: "fahmiharun123",
     },
+    x: {
+      label: "X",
+      url: "https://x.com/FahmiPossible",
+      username: "FahmiPossible",
+    },
   },
   photo: {
     jpeg: "/portfolio/images/myself.jpeg",
@@ -49,10 +54,10 @@ export const siteData = {
     aspectRatio: "1169/1541",
   },
   about: {
-    intro: "Full-Stack Developer and AI Educator focused on building structured, secure, and accessible software systems.",
+    intro: "I build software and AI-related systems while studying Computer Engineering at Politeknik Caltex Riau, and I teach what I learn.",
     narrative: [
-      "My engineering journey is defined by designing academic management platforms, secure online examination infrastructure, and distributed application utilities.",
-      "As an AI Engineering Educator, I mentor developers and learners to leverage artificial intelligence responsibly through solid software engineering principles."
+      "Most of my recent work is education and operations software: SIAB2 for school attendance, and an exam platform (Ujianonline / SIAB1).",
+      "I teach introductory AI to grade-10 students at MAN 1 Rokan Hulu and train staff to use the systems I ship. I am not claiming an AI-engineer title — I build, document, and teach."
     ],
   },
   projects: [
@@ -87,7 +92,7 @@ export const siteData = {
     },
     {
       id: "siab1",
-      name: "SIAB1",
+      name: "Ujianonline (SIAB1)",
       category: "Production System",
       displayCategory: "Production",
       repoUrl: "https://github.com/kuker24/Ujianonline",

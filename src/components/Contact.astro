@@ -14,7 +14,7 @@ import { siteData } from '../data/site';
         Connect &amp; Collaborate
       </h2>
       <p class="font-sans text-base text-ash leading-relaxed">
-        Open for discussions regarding system architecture, AI instruction, project collaboration, or professional opportunities.
+        Open to internships, research programs, and collaborations where I can build, document, and teach.
       </p>
     </div>
 
@@ -51,6 +51,24 @@ import { siteData } from '../data/site';
             <span class="font-sans text-xs text-ash block">LinkedIn</span>
             <span class="font-sans text-lg text-white font-medium group-hover:text-bone transition-colors">
               {siteData.socials.linkedin.username}
+            </span>
+          </div>
+          <svg class="w-5 h-5 text-ash group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- X -->
+        <a
+          href={siteData.socials.x.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-lg border border-graphite bg-void p-6 flex items-center justify-between group hover:border-white transition-all duration-150"
+        >
+          <div class="space-y-1">
+            <span class="font-sans text-xs text-ash block">X</span>
+            <span class="font-sans text-lg text-white font-medium group-hover:text-bone transition-colors">
+              {siteData.socials.x.username}
             </span>
           </div>
           <svg class="w-5 h-5 text-ash group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
