@@ -1,0 +1,21 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section id="experience" class="section experience-stage scroll-mt-24">
+  <div class="section-inner" data-reveal>
+    <h2 class="section-title">Current <em>focus</em></h2>
+    <ol class="course">
+      {siteData.experience.map((item) => (
+        <li class="course-stop">
+          <span class="course-node" aria-hidden="true"></span>
+          <div class="course-body">
+            <h3>{item.title}</h3>
+            <p class="course-place">{item.place}</p>
+            <p class="course-summary">{item.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

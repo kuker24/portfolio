@@ -43,9 +43,11 @@ Additional sections are allowed only when they strengthen the personal narrative
 ## Project classification
 
 - SIAB2: production system, repository `kuker24/abensi`
-- SIAB1: production examination system, formerly named Ujian Online, repository `kuker24/Ujianonline`
+- SIAB1: current production examination system, repository `kuker24/SIAB1_V2`
+- Ujian Online: previous examination generation, repository `kuker24/Ujianonline`
 - LensaDiri: serious hobby project, repository `kuker24/LensaDiri`
 - StreamHive: serious hobby project, repository `kuker24/StreamLocal`
+- F-INVOICE: serious hobby project, repository `kuker24/F-INVOICE`
 
 Do not rename GitHub repository URLs. The display name may differ from the repository name.
 

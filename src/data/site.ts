@@ -2,12 +2,16 @@ export interface Project {
   id: string;
   name: string;
   category: 'Production System' | 'Serious Hobby Project';
-  displayCategory: 'Production' | 'Independent Project';
+  displayCategory: 'Production' | 'Independent Project' | 'Previous generation';
   repoUrl: string;
   description: string;
   architectureNotes: string[];
   techStack: string[];
   highlights: string[];
+  lineage?: {
+    label: string;
+    url: string;
+  };
 }
 
 export interface CapabilityGroup {
@@ -22,12 +26,24 @@ export interface EngineeringPrinciple {
   detail: string;
 }
 
+export interface ExperienceItem {
+  title: string;
+  place: string;
+  summary: string;
+}
+
+export function sectionHref(id: string, basePath = siteData.basePath): string {
+  const root = basePath.endsWith("/") ? basePath : `${basePath}/`;
+  return `${root}#${id}`;
+}
+
 export const siteData = {
   name: "Fahmi Harun",
-  title: "Full-Stack & AI Systems Builder · AI Educator · Computer Engineering Student",
-  description: "Personal portfolio of Fahmi Harun — software and AI-related systems, AI education, and Computer Engineering at Politeknik Caltex Riau.",
+  title: "Software & AI Systems Builder · AI Educator · Computer Engineering Student",
+  description: "Personal portfolio of Fahmi Harun — production school software, privacy-first web systems, and practical developer tools.",
   siteUrl: "https://kuker24.github.io",
   basePath: "/portfolio",
+  location: "Pekanbaru, Riau, Indonesia",
   socials: {
     github: {
       label: "GitHub",
@@ -53,13 +69,38 @@ export const siteData = {
     height: 1541,
     aspectRatio: "1169/1541",
   },
+  nebula: {
+    jpeg: "/portfolio/images/nebula.jpg",
+    webp: "/portfolio/images/nebula.webp",
+    alt: "",
+    width: 3840,
+    height: 2160,
+  },
   about: {
-    intro: "I build software and AI-related systems while studying Computer Engineering at Politeknik Caltex Riau, and I teach what I learn.",
+    intro: "I build real software, teach what I learn, and keep the systems maintainable.",
     narrative: [
-      "Most of my recent work is education and operations software: SIAB2 for school attendance, and an exam platform (Ujianonline / SIAB1).",
-      "I teach introductory AI to grade-10 students at MAN 1 Rokan Hulu and train staff to use the systems I ship. I am not claiming an AI-engineer title — I build, document, and teach."
+      "I am a Computer Engineering student in the D4 Teknologi Rekayasa Komputer program at Politeknik Caltex Riau, based in Pekanbaru.",
+      "I design and operate education software used in a school setting, and I teach introductory artificial intelligence to class-X students at MAN 1 Rokan Hulu. I have also trained teachers on the SIAB2 digital attendance workflow.",
+      "The work spans frontend, backend, databases, deployment, security, and AI-assisted engineering. Current exploration stays in AI systems, application security, reliable deployment, and computer networking.",
     ],
   },
+  experience: [
+    {
+      title: "Computer Engineering student",
+      place: "Politeknik Caltex Riau · D4 Teknologi Rekayasa Komputer",
+      summary: "Studying computer engineering while building and operating the systems described on this site.",
+    },
+    {
+      title: "AI educator",
+      place: "MAN 1 Rokan Hulu · class X",
+      summary: "Teaching introductory, responsible AI use to grade-10 students.",
+    },
+    {
+      title: "School systems builder",
+      place: "SIAB2 and SIAB1",
+      summary: "Developing and operating academic attendance and examination software used in a school setting, and training teachers on the SIAB2 digital attendance workflow.",
+    },
+  ] as ExperienceItem[],
   projects: [
     {
       id: "siab2",
@@ -67,11 +108,11 @@ export const siteData = {
       category: "Production System",
       displayCategory: "Production",
       repoUrl: "https://github.com/kuker24/abensi",
-      description: "Integrated academic and attendance management system with Android QR reader integration and secure transaction verification.",
+      description: "Academic and attendance system with a signed Android QR flow, audit logs, and a reconciliation worker.",
       architectureNotes: [
         "Worker reconciliation for status validation and attendance data sync.",
         "Android QR reader integration with HMAC-signed request validation, nonce, and signature checks.",
-        "Structured production audit procedures and data reconciliation runbooks."
+        "Structured production audit procedures and data reconciliation runbooks.",
       ],
       techStack: [
         "NestJS",
@@ -82,25 +123,56 @@ export const siteData = {
         "PostgreSQL",
         "Redis",
         "Nginx",
-        "Docker Compose"
+        "Docker Compose",
       ],
       highlights: [
-        "HMAC-signed request & nonce validation",
-        "Worker reconciliation & audit trail",
-        "Production deployment runbook"
-      ]
+        "HMAC-signed request and nonce validation",
+        "Worker reconciliation and audit trail",
+        "Production deployment runbook",
+      ],
     },
     {
       id: "siab1",
-      name: "Ujianonline (SIAB1)",
+      name: "SIAB1",
       category: "Production System",
       displayCategory: "Production",
-      repoUrl: "https://github.com/kuker24/Ujianonline",
-      description: "Online examination platform featuring question bank management, automated grading, exam proctoring integration, and real-time alerts.",
+      repoUrl: "https://github.com/kuker24/SIAB1_V2",
+      description: "School examination platform for MAN 1 Rokan Hulu. Staff author, monitor, and grade in the browser. Students sit exams in the official SIAB1 phone app.",
       architectureNotes: [
-        "Question bank processing, automatic answer evaluation, and Safe Exam Browser integration.",
-        "Asynchronous background task processing powered by Celery and Redis.",
-        "Real-time notifications via WebSockets with Prometheus and Grafana monitoring."
+        "Go monolith with PostgreSQL and sqlc, serving staff HTML/CSS/JS from one origin.",
+        "Live session controls: violation signals, pause and resume, and force-submit.",
+        "After the exam: automatic and manual grading, result release, and CSV export.",
+      ],
+      techStack: [
+        "Go",
+        "PostgreSQL",
+        "sqlc",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Docker",
+      ],
+      highlights: [
+        "Staff control plane in the browser",
+        "Student runtime is the official phone app",
+        "Integrity journal, not a public web exam page",
+      ],
+      lineage: {
+        label: "Previous generation: Ujian Online",
+        url: "https://github.com/kuker24/Ujianonline",
+      },
+    },
+    {
+      id: "ujianonline",
+      name: "Ujian Online",
+      category: "Production System",
+      displayCategory: "Previous generation",
+      repoUrl: "https://github.com/kuker24/Ujianonline",
+      description: "Earlier examination platform with exam management, monitoring, and asynchronous grading. Superseded in active development by SIAB1.",
+      architectureNotes: [
+        "Question bank processing and automatic answer evaluation.",
+        "Asynchronous background work with Celery and Redis.",
+        "Cross-platform client work in Flutter alongside the FastAPI service.",
       ],
       techStack: [
         "FastAPI",
@@ -109,16 +181,13 @@ export const siteData = {
         "SQLAlchemy",
         "Redis",
         "Celery",
-        "WebSocket",
-        "Prometheus",
-        "Grafana",
-        "Docker"
+        "Docker",
       ],
       highlights: [
-        "Safe Exam Browser integration",
-        "Asynchronous task processing (Celery)",
-        "Real-time WebSocket & Prometheus monitoring"
-      ]
+        "Exam management and async grading",
+        "FastAPI service with Flutter clients",
+        "Predecessor of the current SIAB1 rewrite",
+      ],
     },
     {
       id: "lensadiri",
@@ -126,11 +195,11 @@ export const siteData = {
       category: "Serious Hobby Project",
       displayCategory: "Independent Project",
       repoUrl: "https://github.com/kuker24/LensaDiri",
-      description: "Privacy-first personal self-reflection web application built with strict data protection and server-only database boundaries.",
+      description: "Privacy-first self-exploration web application with row-level security, consent, and audit boundaries.",
       architectureNotes: [
-        "Data-level security via PostgreSQL Row-Level Security (RLS) and server-only data fetching boundaries.",
-        "Application defense including CSRF protection and opaque HMAC session hashes.",
-        "Granular user consent controls and automated testing suite with Vitest and Playwright."
+        "PostgreSQL Row-Level Security and server-only data fetching boundaries.",
+        "CSRF protection and opaque HMAC session hashes.",
+        "Granular consent controls, with Vitest and Playwright coverage.",
       ],
       techStack: [
         "Next.js",
@@ -141,13 +210,13 @@ export const siteData = {
         "Zod",
         "Argon2id",
         "Vitest",
-        "Playwright"
+        "Playwright",
       ],
       highlights: [
-        "PostgreSQL Row-Level Security & Server-only boundary",
-        "Argon2id authentication & HMAC opaque sessions",
-        "Automated testing with Vitest & Playwright"
-      ]
+        "Row-level security and server-only boundary",
+        "Argon2id authentication and HMAC sessions",
+        "Vitest and Playwright test suite",
+      ],
     },
     {
       id: "streamhive",
@@ -155,11 +224,11 @@ export const siteData = {
       category: "Serious Hobby Project",
       displayCategory: "Independent Project",
       repoUrl: "https://github.com/kuker24/StreamLocal",
-      description: "Local network media streaming application powered by a desktop launcher, QR device pairing, and streaming authentication.",
+      description: "Local-first LAN media server with seekable streaming, subtitle support, and QR device pairing.",
       architectureNotes: [
-        "Seekable interactive video and audio playback using HTTP Range requests and FFmpeg.",
-        "Subtitle support, QR code device pairing, and desktop system tray integration.",
-        "Multi-user authentication and cross-platform installation automation."
+        "Seekable video and audio playback using HTTP Range requests and FFmpeg.",
+        "Subtitle support, QR pairing, and a desktop system-tray launcher.",
+        "Multi-user access and cross-platform installation automation.",
       ],
       techStack: [
         "Python",
@@ -168,47 +237,74 @@ export const siteData = {
         "HTTP Range",
         "pystray",
         "Pillow",
-        "QRCode"
+        "QRCode",
       ],
       highlights: [
-        "Seekable HTTP Range playback & FFmpeg engine",
-        "Desktop tray launcher & QR code pairing",
-        "Multi-user authentication & cross-platform automation"
-      ]
-    }
+        "Seekable HTTP Range playback",
+        "Desktop tray launcher and QR pairing",
+        "Cross-platform setup automation",
+      ],
+    },
+    {
+      id: "finvoice",
+      name: "F-INVOICE",
+      category: "Serious Hobby Project",
+      displayCategory: "Independent Project",
+      repoUrl: "https://github.com/kuker24/F-INVOICE",
+      description: "Invite-only invoice manager with integer IDR money, staff and customer portals, and HMAC-signed PDF links.",
+      architectureNotes: [
+        "Invite-only authentication. Public signups stay off.",
+        "Invoice draft, send, cancel, sequences, and CSV export.",
+        "HMAC-signed PDF download URLs and row-level security on Postgres.",
+      ],
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind",
+        "PostgreSQL",
+        "Supabase Auth",
+        "RLS",
+        "Playwright",
+      ],
+      highlights: [
+        "Invite-only access",
+        "HMAC-signed PDF links",
+        "Staff dashboard and customer portal",
+      ],
+    },
   ] as Project[],
   capabilities: [
     {
-      title: "Full-Stack Web Engineering",
-      description: "Developing web applications from responsive frontend architecture to structured, well-tested backend services.",
-      skills: ["NestJS", "FastAPI", "Next.js", "Astro", "React", "TypeScript", "Python"]
+      title: "Full-stack web engineering",
+      description: "Web applications from structured backend services to staff-facing HTML and React clients.",
+      skills: ["Go", "NestJS", "FastAPI", "Next.js", "Astro", "React", "TypeScript", "Python"],
     },
     {
-      title: "Educational Systems & AI Instruction",
-      description: "Designing academic platforms and educational curricula focused on software engineering and artificial intelligence.",
-      skills: ["EdTech Architecture", "Safe Exam Integration", "Interactive Learning Tools", "AI Workflows"]
+      title: "Educational systems and AI instruction",
+      description: "Academic platforms and classroom instruction in software and introductory artificial intelligence.",
+      skills: ["EdTech architecture", "Exam control plane", "Attendance integrity", "AI instruction"],
     },
     {
-      title: "System Architecture & Security Controls",
-      description: "Implementing data access security controls, structured authorization, telemetry monitoring, and automated test suites.",
-      skills: ["PostgreSQL RLS", "Docker & Nginx", "Prometheus & Grafana", "Argon2id & HMAC", "Vitest & Playwright"]
-    }
+      title: "Architecture and security controls",
+      description: "Data-access boundaries, signed device flows, deployment, and automated tests.",
+      skills: ["PostgreSQL", "sqlc", "Prisma", "Docker", "Nginx", "Argon2id", "HMAC", "Vitest", "Playwright"],
+    },
   ] as CapabilityGroup[],
   principles: [
     {
-      title: "Architecture over Unverified Claims",
+      title: "Architecture over unverified claims",
       summary: "Focus on real technical structure.",
-      detail: "Every component and feature is documented based on concrete architecture, security controls, and verifiable code."
+      detail: "Every feature is described from concrete architecture, security controls, and code that can be opened.",
     },
     {
-      title: "Accessibility & Privacy Baseline",
+      title: "Accessibility and privacy baseline",
       summary: "User privacy and usability.",
-      detail: "Software is built with strong accessibility standards and clear, transparent user data privacy controls."
+      detail: "Software is built with readable interfaces and explicit data-access boundaries.",
     },
     {
-      title: "Honest & Transparent Engineering",
-      summary: "Engineering-first standards.",
-      detail: "Presenting work based on factual technical evidence, clean design patterns, and testable code."
-    }
-  ] as EngineeringPrinciple[]
+      title: "Honest engineering",
+      summary: "Evidence first.",
+      detail: "Work is presented from repositories, not from invented metrics or testimonials.",
+    },
+  ] as EngineeringPrinciple[],
 };

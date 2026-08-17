@@ -1,31 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NebulaField from '../components/NebulaField.astro';
 import { siteData } from '../data/site';
 ---
 
 <Layout title={`404 — Page not found | ${siteData.name}`}>
-  <section class="min-h-[70vh] flex items-center justify-center py-20">
-    <div class="max-w-md mx-auto px-4 text-center space-y-6">
-      <div class="inline-flex items-center gap-2">
-        <span class="font-mono text-xs text-alarm-red font-medium">404</span>
-      </div>
-
-      <h1 class="font-serif text-4xl sm:text-5xl text-white font-normal">
-        Page not found
-      </h1>
-
-      <p class="font-sans text-sm text-ash leading-relaxed">
-        The page you are looking for could not be found.
-      </p>
-
-      <div class="pt-4">
-        <a
-          href={`${siteData.basePath}/`}
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn border border-graphite text-xs font-mono text-white bg-transparent hover:border-white transition-all duration-150"
-        >
-          <span>Back home</span>
-        </a>
-      </div>
+  <section class="lost-stage">
+    <div class="hero-world" aria-hidden="true">
+      <NebulaField />
+      <div class="hero-read"></div>
+    </div>
+    <div class="lost-copy">
+      <h1 class="hero-enter hero-family">Lost</h1>
+      <p>That address is not part of this site.</p>
+      <a href={`${siteData.basePath}/`} class="pressable hero-cta">Back home</a>
     </div>
   </section>
 </Layout>

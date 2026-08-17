@@ -2,46 +2,23 @@
 import { siteData } from '../data/site';
 ---
 
-<section id="capabilities" class="py-20 border-b border-graphite">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-    
-    <!-- Section Header -->
-    <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center">
-        <span class="font-mono text-xs text-violet font-medium">Capabilities</span>
-      </div>
-      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
-        Capabilities &amp; Stack
-      </h2>
-      <p class="font-sans text-base text-ash leading-relaxed">
-        Core technical domains across full-stack engineering, educational platform architecture, security controls, and AI instruction.
+<section id="capabilities" class="section capabilities-stage scroll-mt-24">
+  <div class="section-inner">
+    <header class="capabilities-header" data-reveal>
+      <h2 class="section-title">How I <em>work</em></h2>
+      <p class="section-lede">
+        Full-stack engineering, school-system architecture, security controls, and classroom AI instruction.
       </p>
-    </div>
+    </header>
 
-    <!-- 3-Column Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="capability-field" data-reveal>
       {siteData.capabilities.map((capability) => (
-        <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-smoke/40 transition-colors duration-200">
-          <div class="space-y-3">
-            <h3 class="font-sans text-xl text-white font-medium tracking-tight">
-              {capability.title}
-            </h3>
-            <p class="font-sans text-sm text-ash leading-relaxed">
-              {capability.description}
-            </p>
-          </div>
-
-          <!-- Skills Tag Cloud -->
-          <div class="pt-4 border-t border-graphite/60 flex flex-wrap gap-1.5">
-            {capability.skills.map(skill => (
-              <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2.5 py-1">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+        <article class="capability">
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
+          <p class="capability-skills">{capability.skills.join(' · ')}</p>
+        </article>
       ))}
     </div>
-
   </div>
 </section>

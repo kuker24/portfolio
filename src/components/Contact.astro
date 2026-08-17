@@ -1,83 +1,47 @@
 ---
 import { siteData } from '../data/site';
+
+const links = [siteData.socials.github, siteData.socials.linkedin, siteData.socials.x];
 ---
 
-<section id="contact" class="py-20 border-b border-graphite">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-    
-    <!-- Section Header -->
-    <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center">
-        <span class="font-mono text-xs text-violet font-medium">Contact</span>
-      </div>
-      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
-        Connect &amp; Collaborate
-      </h2>
-      <p class="font-sans text-base text-ash leading-relaxed">
-        Open to internships, research programs, and collaborations where I can build, document, and teach.
-      </p>
+<section id="contact" class="section contact-stage scroll-mt-24">
+  <div class="contact-world" aria-hidden="true">
+    <picture>
+      <source srcset={siteData.nebula.webp} type="image/webp" />
+      <img
+        src={siteData.nebula.jpeg}
+        alt=""
+        width={siteData.nebula.width}
+        height={siteData.nebula.height}
+        class="contact-nebula"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+    <div class="contact-read"></div>
+  </div>
+
+  <div class="section-inner contact-inner" data-reveal>
+    <h2 class="section-title contact-title">Connect and <em>collaborate</em></h2>
+    <p class="section-lede">
+      Open for conversations on school systems, AI instruction, and software collaboration.
+    </p>
+
+    <div class="contact-bands">
+      {links.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pressable contact-band"
+        >
+          <span class="contact-label">{link.label}</span>
+          <span class="contact-handle">{link.username}</span>
+          <svg class="contact-go" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 9L9 3M5 3h4v4"></path>
+          </svg>
+        </a>
+      ))}
     </div>
-
-    <!-- Clean Links Card -->
-    <div class="rounded-card border border-graphite bg-void p-8 sm:p-12">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        
-        <!-- GitHub -->
-        <a
-          href={siteData.socials.github.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-lg border border-graphite bg-void p-6 flex items-center justify-between group hover:border-white transition-all duration-150"
-        >
-          <div class="space-y-1">
-            <span class="font-sans text-xs text-ash block">GitHub</span>
-            <span class="font-sans text-lg text-white font-medium group-hover:text-bone transition-colors">
-              {siteData.socials.github.username}
-            </span>
-          </div>
-          <svg class="w-5 h-5 text-ash group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <!-- LinkedIn -->
-        <a
-          href={siteData.socials.linkedin.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-lg border border-graphite bg-void p-6 flex items-center justify-between group hover:border-white transition-all duration-150"
-        >
-          <div class="space-y-1">
-            <span class="font-sans text-xs text-ash block">LinkedIn</span>
-            <span class="font-sans text-lg text-white font-medium group-hover:text-bone transition-colors">
-              {siteData.socials.linkedin.username}
-            </span>
-          </div>
-          <svg class="w-5 h-5 text-ash group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <!-- X -->
-        <a
-          href={siteData.socials.x.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-lg border border-graphite bg-void p-6 flex items-center justify-between group hover:border-white transition-all duration-150"
-        >
-          <div class="space-y-1">
-            <span class="font-sans text-xs text-ash block">X</span>
-            <span class="font-sans text-lg text-white font-medium group-hover:text-bone transition-colors">
-              {siteData.socials.x.username}
-            </span>
-          </div>
-          <svg class="w-5 h-5 text-ash group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-      </div>
-    </div>
-
   </div>
 </section>

@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import { siteData } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -17,18 +18,44 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": siteData.name,
-  "jobTitle": "Full-Stack Developer & AI Engineering Educator",
+  "jobTitle": siteData.title,
   "url": `${siteData.siteUrl}${siteData.basePath}/`,
+  "image": ogImageUrl,
   "sameAs": [
     siteData.socials.github.url,
-    siteData.socials.linkedin.url
+    siteData.socials.linkedin.url,
+    siteData.socials.x.url,
   ],
-  "knowsAbout": ["Full-Stack Engineering", "Educational Systems Architecture", "AI Engineering", "Web Security"]
+  "homeLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pekanbaru",
+      "addressRegion": "Riau",
+      "addressCountry": "ID",
+    },
+  },
+  "affiliation": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Politeknik Caltex Riau",
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "MAN 1 Rokan Hulu",
+    },
+  ],
+  "knowsAbout": [
+    "Full-stack engineering",
+    "Educational systems",
+    "Application security",
+    "AI instruction",
+  ],
 };
 ---
 
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,38 +66,39 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Schema.org JSON-LD -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-    <style is:global>
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto !important;
-        }
-        *, *::before, *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
+    <ClientRouter />
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion');
       }
-    </style>
+    </script>
   </head>
-  <body class="bg-void text-bone font-sans antialiased min-h-screen flex flex-col overflow-x-hidden selection:bg-violet selection:text-white">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-void focus:text-white focus:border focus:border-graphite focus:rounded-btn focus:font-mono focus:text-xs">
+  <body class="bg-canvas text-ink font-sans antialiased min-h-screen flex flex-col overflow-x-hidden">
+    <!--
+      THESIS: The first viewport is one Cosmic crease — a 4K night-city plate locked by a single steel arc — with the name riding the ridge and the real portrait seated in the saddle. It refuses equal card-grid portfolios and Resend hairline dashboards.
+      OWN-WORLD: Near-black canvas, still city plate, Instrument Serif italic as landscape type, Inter UI, steel-blue #89AACC→#4E85BF on the crease and ring, floating pill chrome. No card-grid as page structure.
+      STORY: A recruiter places Fahmi Harun — PCR student, MAN 1 educator, SIAB builder in Pekanbaru — then opens the repositories.
+      FIRST VIEWPORT: Full-bleed 4K city still, grain, vignette; one sweeping steel arc; stacked italic Fahmi/Harun on the ridge; large circular real portrait in the saddle; role, intro, See work + GitHub; floating FH pill; scroll mark.
+      FORM: Motionsites Portfolio Cosmic intensified as curved-crease shell, seed 6d3ca14b index 7.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-surface focus:text-ink focus:rounded-pill focus:text-sm"
+    >
       Skip to content
     </a>
     <Header />
@@ -78,5 +106,9 @@ const jsonLd = {
       <slot />
     </main>
     <Footer />
+    <script>
+      import { bindMotionLifecycle } from '../scripts/motion';
+      bindMotionLifecycle();
+    </script>
   </body>
 </html>

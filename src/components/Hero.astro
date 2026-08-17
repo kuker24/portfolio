@@ -1,83 +1,88 @@
 ---
 import { siteData } from '../data/site';
+import NebulaField from './NebulaField.astro';
+
+const givenName = siteData.name.split(' ')[0];
+const familyName = siteData.name.split(' ').slice(1).join(' ');
 ---
 
-<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-graphite">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      <!-- Left Column: Hero Text & Positioning -->
-      <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-        
-        <!-- Eyebrow -->
-        <div class="inline-flex items-center gap-2">
-          <span class="font-mono text-xs text-violet font-medium tracking-wide">
-            Software &amp; AI systems · AI educator
-          </span>
-        </div>
+<section class="hero-stage" aria-labelledby="hero-name">
+  <div class="hero-world" aria-hidden="true">
+    <NebulaField />
+    <div class="hero-read"></div>
+    <svg class="hero-grain" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <filter id="hero-noise" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#hero-noise)" opacity="0.22"></rect>
+    </svg>
+    <svg class="hero-arc" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="hero-arc-stroke" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stop-color="#89AACC" stop-opacity="0"></stop>
+          <stop offset="28%" stop-color="#89AACC"></stop>
+          <stop offset="72%" stop-color="#4E85BF"></stop>
+          <stop offset="100%" stop-color="#4E85BF" stop-opacity="0.15"></stop>
+        </linearGradient>
+      </defs>
+      <path
+        class="hero-arc-path"
+        d="M-48 848 C 260 792, 360 430, 640 468 S 980 620, 1148 286 S 1360 72, 1520 36"
+        fill="none"
+        stroke="url(#hero-arc-stroke)"
+        stroke-width="1.35"
+        stroke-linecap="round"
+      ></path>
+      <circle class="hero-arc-node" cx="220" cy="760" r="2.6" fill="#89AACC"></circle>
+      <circle class="hero-arc-node" cx="640" cy="468" r="2.6" fill="#89AACC"></circle>
+      <circle class="hero-arc-node" cx="1148" cy="286" r="3.1" fill="#4E85BF"></circle>
+    </svg>
+  </div>
 
-        <!-- Main Display Headline (Serif Editorial) -->
-        <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl text-white font-normal leading-none tracking-tight">
-          {siteData.name}
-        </h1>
-
-        <!-- Positioning Sub-headline -->
-        <p class="font-sans text-lg sm:text-xl text-bone font-normal leading-relaxed tracking-tight max-w-2xl">
-          {siteData.title}
-        </p>
-
-        <!-- Brief Professional Summary -->
-        <p class="font-sans text-base text-ash leading-relaxed max-w-xl">
-          {siteData.about.intro}
-        </p>
-
-        <!-- Action Buttons -->
-        <div class="pt-4 flex flex-wrap items-center gap-4 w-full sm:w-auto">
-          <a
-            href="#projects"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-btn border border-graphite text-sm font-sans font-medium text-white bg-transparent hover:border-white transition-all duration-150 w-full sm:w-auto"
-          >
-            <span>View selected work</span>
-            <svg class="w-4 h-4 text-ash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7 7m7-7V3" />
-            </svg>
-          </a>
-
+  <div class="hero-layout">
+    <div class="hero-ridge">
+      <h1 id="hero-name" class="hero-name">
+        <span class="hero-enter hero-given">{givenName}</span>
+        <span class="hero-enter hero-family">{familyName}</span>
+      </h1>
+      <div class="hero-copy">
+        <p class="hero-enter hero-role">{siteData.title}</p>
+        <p class="hero-enter hero-intro">{siteData.about.intro}</p>
+        <div class="hero-actions">
+          <a href="#projects" class="hero-enter hero-cta pressable">See work</a>
           <a
             href={siteData.socials.github.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-btn border border-graphite text-sm font-sans text-ash bg-transparent hover:text-white hover:border-white transition-all duration-150 w-full sm:w-auto"
+            class="hero-enter hero-cta-alt pressable"
           >
-            <span>GitHub</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            GitHub
           </a>
         </div>
-
+        <p class="hero-enter hero-place">{siteData.location}</p>
       </div>
-
-      <!-- Right Column: Editorial Portrait Anchor -->
-      <div class="lg:col-span-5 flex justify-center lg:justify-end">
-        <div class="w-full max-w-md rounded-card border border-graphite bg-void p-2 overflow-hidden shadow-none">
-          <div class="overflow-hidden rounded-xl bg-void aspect-[1169/1541]">
-            <picture>
-              <source srcset={siteData.photo.webp} type="image/webp" />
-              <img
-                src={siteData.photo.jpeg}
-                alt={siteData.photo.alt}
-                width={siteData.photo.width}
-                height={siteData.photo.height}
-                class="w-full h-full object-cover object-top contrast-[1.02] filter transition-all duration-300"
-                loading="eager"
-                decoding="async"
-              />
-            </picture>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <figure class="hero-enter hero-moon">
+      <span class="hero-moon-ring" aria-hidden="true"></span>
+      <picture>
+        <source srcset={siteData.photo.webp} type="image/webp" />
+        <img
+          src={siteData.photo.jpeg}
+          alt={siteData.photo.alt}
+          width={siteData.photo.width}
+          height={siteData.photo.height}
+          class="hero-moon-photo"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
+    </figure>
   </div>
+
+  <a href="#about" class="hero-enter hero-scroll">
+    Scroll
+    <span class="hero-scroll-line" aria-hidden="true"></span>
+  </a>
 </section>

@@ -1,161 +1,83 @@
 ---
 import { siteData } from '../data/site';
 
-const productionProjects = siteData.projects.filter(p => p.category === 'Production System');
-const hobbyProjects = siteData.projects.filter(p => p.category === 'Serious Hobby Project');
+const featured = siteData.projects.filter((project) => project.id === 'siab2' || project.id === 'siab1');
+const catalog = siteData.projects.filter((project) => project.id !== 'siab2' && project.id !== 'siab1');
 ---
 
-<section id="projects" class="py-20 border-b border-graphite">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-    
-    <!-- Section Header -->
-    <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center">
-        <span class="font-mono text-xs text-violet font-medium">Selected work</span>
-      </div>
-      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
-        Featured Systems &amp; Projects
-      </h2>
-      <p class="font-sans text-base text-ash leading-relaxed">
-        Production systems, academic infrastructure, and open-source applications built with focus on architecture, security, and reliability.
+<section id="projects" class="section projects-stage scroll-mt-24">
+  <div class="section-inner">
+    <header class="projects-header" data-reveal>
+      <h2 class="section-title">Featured <em>systems</em></h2>
+      <p class="section-lede">
+        Production school software and independent systems. Architecture notes come from the public repositories.
       </p>
-    </div>
+    </header>
 
-    <!-- Production Systems (Large Cards) -->
-    <div class="space-y-8">
-      <div class="flex items-center justify-between border-b border-graphite pb-3">
-        <h3 class="font-sans text-sm font-medium text-bone">Production</h3>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8">
-        {productionProjects.map((project) => (
-          <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 hover:border-smoke/40 transition-colors duration-200">
-            <!-- Header Category -->
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-violet">
-                {project.displayCategory}
-              </span>
-            </div>
-
-            <!-- Main Info -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div class="lg:col-span-7 space-y-3">
-                <h4 class="font-sans text-2xl sm:text-3xl text-white font-medium tracking-tight">
-                  {project.name}
-                </h4>
-                <p class="font-sans text-sm sm:text-base text-bone leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-
-              <!-- Tech Stack Tokens -->
-              <div class="lg:col-span-5 space-y-2">
-                <div class="flex flex-wrap gap-2">
-                  {project.techStack.map(tech => (
-                    <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2.5 py-1">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <!-- Architecture Notes (Max 3) -->
-            <div class="rounded-lg border border-graphite/60 bg-void p-4 space-y-2 font-sans text-xs sm:text-sm">
-              <ul class="space-y-2 text-ash">
-                {project.architectureNotes.slice(0, 3).map(note => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-violet shrink-0">•</span>
-                    <span class="leading-relaxed">{note}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Action Link -->
-            <div class="pt-2 flex items-center justify-between">
+    <div class="project-artifacts">
+      {featured.map((project) => (
+        <article class="artifact" data-reveal data-project={project.id}>
+          <p class="artifact-kind">{project.displayCategory}</p>
+          <h3 class="artifact-name">{project.name}</h3>
+          <p class="artifact-desc">{project.description}</p>
+          <ul class="artifact-notes">
+            {project.architectureNotes.slice(0, 3).map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+          <p class="artifact-stack">{project.techStack.join(' · ')}</p>
+          <div class="artifact-links">
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pressable artifact-repo"
+            >
+              View on GitHub
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M3 9L9 3M5 3h4v4"></path>
+              </svg>
+            </a>
+            {project.lineage && (
               <a
-                href={project.repoUrl}
+                href={project.lineage.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 font-sans text-sm font-medium text-white hover:text-violet transition-colors group"
+                class="artifact-lineage"
               >
-                <span>View on GitHub</span>
-                <svg class="w-4 h-4 text-ash group-hover:text-violet group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                {project.lineage.label}
               </a>
-            </div>
+            )}
           </div>
-        ))}
-      </div>
+        </article>
+      ))}
     </div>
 
-    <!-- Independent Projects (2-Column Grid) -->
-    <div class="space-y-8 pt-4">
-      <div class="flex items-center justify-between border-b border-graphite pb-3">
-        <h3 class="font-sans text-sm font-medium text-bone">Independent Projects</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {hobbyProjects.map((project) => (
-          <div class="rounded-card border border-graphite bg-void p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:border-smoke/40 transition-colors duration-200">
-            <div class="space-y-4">
-              <!-- Category Tag -->
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-violet">
-                  {project.displayCategory}
-                </span>
-              </div>
-
-              <!-- Title & Desc -->
-              <div class="space-y-2">
-                <h4 class="font-sans text-xl text-white font-medium tracking-tight">
-                  {project.name}
-                </h4>
-                <p class="font-sans text-sm text-ash leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-
-              <!-- Tech Stack -->
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                {project.techStack.map(tech => (
-                  <span class="font-mono text-xs text-smoke bg-void border border-graphite rounded-btn px-2 py-0.5">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <!-- Architecture Highlights (Max 3) -->
-              <div class="rounded-lg border border-graphite/60 bg-void p-3.5 space-y-2 font-sans text-xs">
-                {project.architectureNotes.slice(0, 3).map(note => (
-                  <div class="flex items-start gap-2 text-ash">
-                    <span class="text-violet shrink-0">•</span>
-                    <span class="leading-normal">{note}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <!-- Action Link -->
-            <div class="pt-4 border-t border-graphite/60 flex items-center justify-between">
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 font-sans text-xs font-medium text-white hover:text-violet transition-colors group"
-              >
-                <span>View on GitHub</span>
-                <svg class="w-3.5 h-3.5 text-ash group-hover:text-violet group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+    <ul class="project-catalog" data-reveal>
+      {catalog.map((project) => (
+        <li class="catalog-row">
+          <div class="catalog-main">
+            <h3>
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                {project.name}
               </a>
-            </div>
+            </h3>
+            <p class="catalog-kind">{project.displayCategory}</p>
           </div>
-        ))}
-      </div>
-    </div>
-
+          <p class="catalog-desc">{project.description}</p>
+          <a
+            class="catalog-go"
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.name} on GitHub`}
+          >
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 9L9 3M5 3h4v4"></path>
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

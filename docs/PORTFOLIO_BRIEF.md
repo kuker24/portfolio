@@ -4,7 +4,8 @@
 
 **Fahmi Harun**  
 GitHub: `https://github.com/kuker24`  
-LinkedIn: `https://www.linkedin.com/in/fahmiharun123/`
+LinkedIn: `https://www.linkedin.com/in/fahmiharun123/`  
+X: `https://x.com/FahmiPossible`
 
 ## Primary objective
 
@@ -22,13 +23,15 @@ The website should prioritize clarity and proof of work over decorative statisti
 
 ## Personal positioning
 
-Initial positioning:
+Positioning (from GitHub profile, 2026-08-17):
 
-> Full-Stack Developer, AI Engineering Educator, and Security-Focused Builder.
+> Software & AI Systems Builder · AI Educator · Computer Engineering Student
 
 Supporting statement:
 
-> Building production education platforms, privacy-first web systems, and practical developer tools.
+> I build real software, teach what I learn, and keep the systems maintainable.
+
+Confirmed context: D4 Teknologi Rekayasa Komputer at Politeknik Caltex Riau, Pekanbaru. Teaches introductory AI to class X at MAN 1 Rokan Hulu. Trained teachers on the SIAB2 digital attendance workflow.
 
 These texts may be refined, but claims must remain supported by the project evidence.
 
@@ -44,12 +47,20 @@ These texts may be refined, but claims must remain supported by the project evid
 
 ### SIAB1
 
+- Repository: `https://github.com/kuker24/SIAB1_V2`
+- Classification: production system (current)
+- Domain: digital examination for MAN 1 Rokan Hulu
+- Evidence: Go monolith, PostgreSQL, sqlc, staff HTML/CSS/JS, live session controls, auto/manual grading, result release, CSV export. Students sit exams in the official SIAB1 phone app, not on the public website.
+- Do not describe current SIAB1 as a Safe Exam Browser, Telegram, IRT, or server-side APK product. Those are removed legacy features.
+- Portfolio emphasis: staff control plane, exam integrity via the official phone app, school operations
+
+### Ujian Online
+
 - Repository: `https://github.com/kuker24/Ujianonline`
-- Previous public repository name: Ujian Online
-- Classification: production system
+- Classification: previous generation of the examination system
 - Domain: digital examination
-- Initial evidence: FastAPI, Flutter, PostgreSQL, Redis/Celery, Safe Exam Browser integration, WebSocket notifications, monitoring, analytics, and layered security controls
-- Portfolio emphasis: secure examination workflow, asynchronous processing, cross-platform client, observability, and production architecture
+- Evidence: FastAPI, Flutter, PostgreSQL, Redis/Celery
+- Portfolio emphasis: lineage only — predecessor of SIAB1
 
 ### LensaDiri
 
@@ -67,14 +78,25 @@ These texts may be refined, but claims must remain supported by the project evid
 - Initial evidence: Flask, HTTP Range streaming, subtitle support, QR connection, multi-user access, desktop launcher, cross-platform setup automation, and FFmpeg-related tooling
 - Portfolio emphasis: local-first software, networking, desktop integration, cross-platform automation, and practical usability
 
+### F-INVOICE
+
+- Repository: `https://github.com/kuker24/F-INVOICE`
+- Classification: serious hobby project
+- Domain: invite-only invoice management
+- Evidence: Next.js, TypeScript, PostgreSQL, Supabase Auth/RLS, HMAC-signed PDF links, staff and customer portals
+- Portfolio emphasis: invite-only access, money as integer IDR, signed document links
+- Do not publish seed accounts, project refs, or environment secrets from that repository
+
 ## Suggested experience narrative
 
 Use only details confirmed by the owner:
 
 - develops and operates education-related software systems
-- teaches Coding and Artificial Intelligence for grade X students
+- Computer Engineering student, D4 Teknologi Rekayasa Komputer, Politeknik Caltex Riau
+- teaches introductory AI to class-X students at MAN 1 Rokan Hulu
+- trained teachers on the SIAB2 digital attendance workflow
 - works across frontend, backend, databases, deployment, security, and AI developer tooling
-- builds both commissioned production systems and technically serious personal projects
+- builds both production school systems and technically serious personal projects
 
 Do not add dates, organizations, contract values, user counts, uptime, performance numbers, or client testimonials without explicit evidence.
 
@@ -105,6 +127,7 @@ Do not add dates, organizations, contract values, user counts, uptime, performan
 - portrait alt text: `Portrait of Fahmi Harun`
 - GitHub: `https://github.com/kuker24`
 - LinkedIn: `https://www.linkedin.com/in/fahmiharun123/`
+- X: `https://x.com/FahmiPossible`
 
 The connected coding AI must locate `myself.jpeg` in the worktree and use it as the primary portrait. If necessary for static hosting, copy or move it into `public/images/` and optionally generate an optimized WebP derivative. Preserve the original file and do not replace it with a stock image, generated avatar, or unrelated illustration.
 

@@ -1,31 +1,16 @@
 ---
 import { siteData } from '../data/site';
-const currentYear = new Date().getFullYear();
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="py-12 border-t border-graphite bg-void">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-smoke">
-    <div>
-      <span>© {currentYear} {siteData.name}</span>
-    </div>
-
-    <div class="flex items-center gap-6">
-      <a
-        href={siteData.socials.github.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white transition-colors"
-      >
-        GitHub
-      </a>
-      <a
-        href={siteData.socials.linkedin.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white transition-colors"
-      >
-        LinkedIn
-      </a>
-    </div>
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <p>© {year} {siteData.name}</p>
+    <nav aria-label="Footer">
+      <a href={siteData.socials.github.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={siteData.socials.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={siteData.socials.x.url} target="_blank" rel="noopener noreferrer">X</a>
+    </nav>
   </div>
 </footer>

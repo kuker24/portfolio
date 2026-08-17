@@ -2,38 +2,16 @@
 import { siteData } from '../data/site';
 ---
 
-<section id="principles" class="py-20 border-b border-graphite">
-  <div class="max-w-site mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-    
-    <!-- Section Header -->
-    <div class="space-y-4 max-w-2xl">
-      <div class="inline-flex items-center">
-        <span class="font-mono text-xs text-violet font-medium">Principles</span>
-      </div>
-      <h2 class="font-sans text-3xl sm:text-5xl text-white font-medium tracking-tight">
-        Engineering Principles
-      </h2>
-      <p class="font-sans text-base text-ash leading-relaxed">
-        Core principles guiding architecture decisions, technology selection, and code quality standards.
-      </p>
-    </div>
-
-    <!-- Clean Block Layout -->
-    <div class="rounded-card border border-graphite bg-void divide-y divide-graphite">
-      {siteData.principles.map((principle, index) => (
-        <div class="p-6 sm:p-8 space-y-3 hover:bg-void/40 transition-colors">
-          <div class="flex items-center gap-3">
-            <span class="font-mono text-sm text-violet font-medium">0{index + 1}.</span>
-            <h3 class="font-sans text-xl sm:text-2xl text-white font-medium tracking-tight">
-              {principle.title}
-            </h3>
-          </div>
-          <p class="font-sans text-base text-bone leading-relaxed max-w-4xl sm:pl-9">
-            {principle.detail}
-          </p>
-        </div>
+<section id="principles" class="section principles-stage scroll-mt-24">
+  <div class="section-inner">
+    <h2 class="section-title">How I <em>decide</em></h2>
+    <div class="principle-stack" data-reveal>
+      {siteData.principles.map((principle) => (
+        <article class="principle">
+          <h3>{principle.title}</h3>
+          <p>{principle.detail}</p>
+        </article>
       ))}
     </div>
-
   </div>
 </section>
